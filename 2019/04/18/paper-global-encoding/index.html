@@ -20,7 +20,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-
+<meta name="google-site-verification" content="vhEz5FeXbNFEH857hjnmo4bueR-6CXF9UfYGLR1K2UI">
 
 
 
@@ -96,18 +96,22 @@
 
 
 
-  <meta name="description" content="[TOC] 论文思路seq2seq模型产生的摘要有大量的重复和语义无关性，作者为了解决该问题，提出了一种全局编码器的思想，还是通用的seq2seq模型，将编码器(encoder)的输出输入到一个卷积门电路中，来获得对输入(原文)更好的表示。 模型描述required knowledge :  seq2seq模型attention mechanism(self-attention)CNN    关于">
+  <meta name="description" content="论文思路seq2seq模型产生的摘要有大量的重复和语义无关性，作者为了解决该问题，提出了一种全局编码器的思想，还是通用的seq2seq模型，将编码器(encoder)的输出输入到一个卷积门电路中，来获得对输入(原文)更好的表示。 模型描述required knowledge :  seq2seq模型attention mechanism(self-attention)CNN    关于以上基础知">
 <meta name="keywords" content="Abstract Summarization,Global Encdong">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《Global Encoding for Abstractive Summarization》 论文阅读">
 <meta property="og:url" content="http://yoursite.com/2019/04/18/paper-global-encoding/index.html">
 <meta property="og:site_name" content="SomeThingFun">
-<meta property="og:description" content="[TOC] 论文思路seq2seq模型产生的摘要有大量的重复和语义无关性，作者为了解决该问题，提出了一种全局编码器的思想，还是通用的seq2seq模型，将编码器(encoder)的输出输入到一个卷积门电路中，来获得对输入(原文)更好的表示。 模型描述required knowledge :  seq2seq模型attention mechanism(self-attention)CNN    关于">
+<meta property="og:description" content="论文思路seq2seq模型产生的摘要有大量的重复和语义无关性，作者为了解决该问题，提出了一种全局编码器的思想，还是通用的seq2seq模型，将编码器(encoder)的输出输入到一个卷积门电路中，来获得对输入(原文)更好的表示。 模型描述required knowledge :  seq2seq模型attention mechanism(self-attention)CNN    关于以上基础知">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-18T07:25:11.820Z">
+<meta property="og:image" content="https://i.loli.net/2019/04/18/5cb81535a8695.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/18/5cb82cf210512.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/18/5cb82cf21ab4b.png">
+<meta property="og:updated_time" content="2019-04-18T09:09:12.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《Global Encoding for Abstractive Summarization》 论文阅读">
-<meta name="twitter:description" content="[TOC] 论文思路seq2seq模型产生的摘要有大量的重复和语义无关性，作者为了解决该问题，提出了一种全局编码器的思想，还是通用的seq2seq模型，将编码器(encoder)的输出输入到一个卷积门电路中，来获得对输入(原文)更好的表示。 模型描述required knowledge :  seq2seq模型attention mechanism(self-attention)CNN    关于">
+<meta name="twitter:description" content="论文思路seq2seq模型产生的摘要有大量的重复和语义无关性，作者为了解决该问题，提出了一种全局编码器的思想，还是通用的seq2seq模型，将编码器(encoder)的输出输入到一个卷积门电路中，来获得对输入(原文)更好的表示。 模型描述required knowledge :  seq2seq模型attention mechanism(self-attention)CNN    关于以上基础知">
+<meta name="twitter:image" content="https://i.loli.net/2019/04/18/5cb81535a8695.png">
 
 
 
@@ -350,7 +354,7 @@
                 
               
 
-              <time title="创建时间：2019-04-18 11:24:39 / 修改时间：15:25:11" itemprop="dateCreated datePublished" datetime="2019-04-18T11:24:39+08:00">2019-04-18</time>
+              <time title="创建时间：2019-04-18 11:24:39 / 修改时间：17:09:12" itemprop="dateCreated datePublished" datetime="2019-04-18T11:24:39+08:00">2019-04-18</time>
             
 
             
@@ -407,21 +411,42 @@
       
 
       
-        <p>[TOC]</p>
-<h2 id="论文思路"><a href="#论文思路" class="headerlink" title="论文思路"></a>论文思路</h2><p>seq2seq模型产生的摘要有大量的重复和语义无关性，作者为了解决该问题，提出了一种全局编码器的思想，还是通用的seq2seq模型，将编码器(encoder)的输出输入到一个卷积门电路中，来获得对输入(原文)更好的表示。</p>
-<h2 id="模型描述"><a href="#模型描述" class="headerlink" title="模型描述"></a>模型描述</h2><p><em>required knowledge</em> :</p>
+        <!-- ttoc -->
+<h2><span id="论文思路">论文思路</span></h2><p>seq2seq模型产生的摘要有大量的重复和语义无关性，作者为了解决该问题，提出了一种全局编码器的思想，还是通用的seq2seq模型，将编码器(encoder)的输出输入到一个卷积门电路中，来获得对输入(原文)更好的表示。</p>
+<h2><span id="模型描述">模型描述</span></h2><p><em>required knowledge</em> :</p>
 <blockquote>
 <p>seq2seq模型<br>attention mechanism(self-attention)<br>CNN  </p>
 </blockquote>
 <p>关于以上基础知识就不再赘述，需要的朋友可以参考其他博客。<br>下面主要介绍卷积门单元(Convolutional Gated Unit):卷积门单元又分为两个组件，分别是CNN用于提取不同类型的特征，和self-attention用于提取句子内部之间的联系。</p>
-<h3 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h3><p><div align="center">
-![CNN Gate Unit](https://i.loli.net/2019/04/18/5cb81535a8695.png){:height="50%" width="50%"}
-</div><br>在以上的CNN Gate Unit中需要关注的有两个地方，<br>第一，使用大小不同的核提取不同粒度的特征，核的大小为1是一种卷积的trick，目的是对原来的表示进行升维和降维。<br>第二，使用两个大小为3的核代替一个大小为5的核。经过两次卷积和大小为3的卷积和经过一个卷积核大小为5所得到的特征表示是完全一样的。  </p>
+<h3><span id="cnn">CNN</span></h3><div align="center">
+<img src="https://i.loli.net/2019/04/18/5cb81535a8695.png" alt="CNN Gate Unit.png" title="CNN Gate Unit.png" width="50%">
+</div>
+
+<p>在以上的CNN Gate Unit中需要关注的有两个地方，<br>第一，使用大小不同的核提取不同粒度的特征，核的大小为1是一种卷积的trick，目的是对原来的表示进行升维和降维。<br>第二，使用两个大小为3的核代替一个大小为5的核。经过两次卷积和大小为3的卷积和经过一个卷积核大小为5所得到的特征表示是完全一样的。  </p>
 <blockquote>
-<p>假如图像大小为m <em> m(假设步长s都为1,填充p为0),经过一个3</em>3的卷积核(m + 2 <em> p - 3)/s + 1 = m-2，在经过一个3 </em> 3的卷积核(m-2 + 2 <em> p-3)/s + 1 = m-4。参数个数为3 </em> 3 + 3 <em> 3 = 18<br>经过一个5 </em> 5的卷积核(m + 2 <em> p - 5)/s + 1 = m-4。参数个数为5 </em> 5 = 25<br>所以使用两个大小为3的卷积核效果和使用一个5*5的卷积核相同，却减少了很多参数。训练速度更快而且不容易过拟合。所以现在更倾向于使用多个小的卷积核代替一个大的卷积核。</p>
+<p>假如图像大小为m <em> m(假设步长s都为1,填充p为0),经过一个3</em>3的卷积核(m + 2 <em> p - 3)/s + 1 = m-2，在经过一个3 </em> 3的卷积核(m-2 + 2 <em> p-3)/s + 1 = m-4。参数个数为3 </em> 3 + 3 <em> 3 = 18<br>经过一个5 </em> 5的卷积核(m + 2 <em> p - 5)/s + 1 = m-4。参数个数为5 </em> 5 = 25<br>所以使用两个大小为3的卷积核效果和使用一个5*5的卷积核相同，却减少了很多参数。训练速度更快而且不容易过拟合。所以现在更倾向于使用多个小的卷积核代替一个大的卷积核。  </p>
 </blockquote>
-<h3 id="self-attention"><a href="#self-attention" class="headerlink" title="self-attention"></a>self-attention</h3><script type="math/tex; mode=display">
-Attion(Q, K, V) = softmax(\frac{\sqrt{d_k}{QK^T})V</script>
+<h3><span id="self-attention">self-attention</span></h3><p>Attention的计算公式为:  </p>
+<script type="math/tex; mode=display">Attention(Q, K, V) = softmax(\frac{Q^TK}{\sqrt{d_k}})V</script><p>其中Q, V是CNN的输出，$K= W_{att}V$  </p>
+<p>最后对得到的表示经过logstic sigmoid函数变为(0, 1)如果为0表示信息是无用的如果为1表示信息是有用的。</p>
+<h2><span id="实验结果">实验结果</span></h2><div align="center">
+<img src="https://i.loli.net/2019/04/18/5cb82cf210512.png" alt="LCSTS.png" title="LCSTS.png" width="50%">
+</div>
+<div align="center">
+<img src="https://i.loli.net/2019/04/18/5cb82cf21ab4b.png" alt="gigaword.png" title="gigaword.png" width="50%">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
       
     </div>
 
@@ -616,7 +641,7 @@ Attion(Q, K, V) = softmax(\frac{\sqrt{d_k}{QK^T})V</script>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#论文思路"><span class="nav-number">1.</span> <span class="nav-text">论文思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型描述"><span class="nav-number">2.</span> <span class="nav-text">模型描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CNN"><span class="nav-number">2.1.</span> <span class="nav-text">CNN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#self-attention"><span class="nav-number">2.2.</span> <span class="nav-text">self-attention</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">论文思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">模型描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">CNN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">self-attention</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">实验结果</span></a></li></ol></div>
             
 
           </div>
@@ -827,7 +852,7 @@ Attion(Q, K, V) = softmax(\frac{\sqrt{d_k}{QK^T})V</script>
     }
   });
 </script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
     
   
